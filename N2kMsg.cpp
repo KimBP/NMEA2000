@@ -22,6 +22,9 @@ Author: Timo Lappalainen
 */
 
 #include <N2kMsg.h>
+
+#include <cmath>
+
 //#include <MemoryFree.h>  // For testing used memory
 
 #define Escape 0x10
