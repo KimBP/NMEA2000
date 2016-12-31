@@ -22,6 +22,8 @@ Author: Timo Lappalainen
 */
 
 #include <NMEA2000.h> 
+#include <cstdlib>
+#include <string.h>
 
 #define N2kAddressClaimTimeout 250
 
