@@ -45,6 +45,7 @@ address anymore. See also method ReadResetAddressChanged().
 #define _NMEA2000_H_
 #include <N2kMsg.h>
 #include <N2kCANMsg.h>
+#include <Serial.h>
 
 // Documenta says for leghts 33,40,24,32, but then values
 // has not been translated right on devices.
@@ -173,7 +174,7 @@ protected:
     tN2kMode N2kMode; // Default N2km_ListenOnly.
     tForwardType ForwardType; // Default fwdt_Actisense.
     unsigned int ForwardMode; // Default all messages - also system and own.
-    Stream *ForwardStream; // Default Serial.
+    Serial *ForwardStream; // Default Serial.
     
     bool DeviceReady;
     unsigned long AddressClaimStarted;
@@ -346,7 +347,7 @@ public:
     void SetForwardType(tForwardType fwdType) { ForwardType=fwdType; }
 
     // Set the stream, where messages will be forwarded in listen mode. Default is &Serial.
-    void SetForwardStream(Stream* _stream) { ForwardStream=_stream; }
+    void SetForwardStream(Serial* _stream) { ForwardStream=_stream; }
     
     // You can call this. It will be called anyway automatically by ParseMessages(); 
     bool Open();
