@@ -548,6 +548,7 @@ int tNMEA2000::SetN2kCANBufMsg(unsigned long canId, unsigned char len, unsigned 
         if (i==MaxN2kCANMsgs) return result; // we did not find start for this message, so just skip it.
         if (N2kCANMsgBuf[i].LastFrame+1 != buf[0]) { // We have lost frame, so free this
           N2kCANMsgBuf[i].FreeMessage();
+          return result;
         }
         N2kCANMsgBuf[i].LastFrame=buf[0];
         for (int j=1; j<len; j++, N2kCANMsgBuf[i].CopiedLen++) {
