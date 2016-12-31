@@ -128,7 +128,6 @@ public:
   bool Set2ByteUInt(uint16_t v, int &Index);
 
   void Print(Serial *port, bool NoData=false) const;
-  void SendInActisenseFormat(Stream *port) const;
 };
 
 void PrintBuf(Serial *port, unsigned char len, const unsigned char *pData, bool AddLF=false);

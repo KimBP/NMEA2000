@@ -465,7 +465,7 @@ bool tNMEA2000::SendMsg(const tN2kMsg &N2kMsg, int DeviceIndex) {
       break;
     case dm_Actisense:
       result=true;
-      N2kMsg.SendInActisenseFormat(ForwardStream);
+//      N2kMsg.SendInActisenseFormat(ForwardStream);
       break;
   }
   
@@ -604,8 +604,8 @@ void tNMEA2000::ForwardMessage(const tN2kMsg &N2kMsg) {
   if ( !ForwardEnabled() || ( !( ForwardOwnMessages() && IsMySource(N2kMsg.Source) ) && N2kMode==N2km_NodeOnly ) ) return; 
 
   switch (ForwardType) {
-    case fwdt_Actisense: 
-      N2kMsg.SendInActisenseFormat(ForwardStream);
+    case fwdt_Actisense:
+//      N2kMsg.SendInActisenseFormat(ForwardStream);
       break;
     case fwdt_Text:
       N2kMsg.Print(ForwardStream);
