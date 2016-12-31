@@ -399,18 +399,16 @@ bool tNMEA2000::SendMsg(const tN2kMsg &N2kMsg, int DeviceIndex) {
   static int SendOrder=0;
   bool result=false;
   
-  if ( DeviceIndex>=DeviceCount) return result;
-  N2kMsg.CheckDestination();
+  if ( DeviceIndex>=DeviceCount) return false;
+  if (N2kMode==N2km_ListenOnly) return false; // Do not send anything on listen only mode
+  if (N2kMsg.PGN==0) return false;
+
   if (DeviceIndex>=0) N2kMsg.ForceSource(DeviceInformation[DeviceIndex].N2kSource);
-  
   if (N2kMsg.Source>253) return false; // CAN bus address range is 0-253.
   
+  N2kMsg.CheckDestination();
   unsigned long canId=N2ktoCanID(N2kMsg.Priority,N2kMsg.PGN,N2kMsg.Source, N2kMsg.Destination);
 
-  if (N2kMode==N2km_ListenOnly) return false; // Do not send anything on listen only mode
-  
-  if (N2kMsg.PGN==0) return false;
-  
   switch (dbMode) {
     case dm_None:
 //      ForwardStream->print("Send PGN:"); ForwardStream->println(N2kMsg.PGN);
