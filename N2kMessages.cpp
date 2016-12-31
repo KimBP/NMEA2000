@@ -22,6 +22,7 @@ Author: Timo Lappalainen
 */
 
 #include <N2kMessages.h>
+#include <string.h>
 
 //*****************************************************************************
 // System time
