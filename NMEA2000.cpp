@@ -113,7 +113,9 @@ void ClearSetCharBuf(const char *str, int MaxLen, char *buf) {
 }
 
  //*****************************************************************************
-tNMEA2000::tNMEA2000() {
+tNMEA2000::tNMEA2000(Serial *fwdStream)
+: ForwardStream(fwdStream)
+{
 
   SingleFrameMessages[0]=DefSingleFrameMessages;
   FastPacketMessages[0]=DefFastPacketMessages;
@@ -128,7 +130,6 @@ tNMEA2000::tNMEA2000() {
   MsgHandler=0;
   ISORqstHandler=0;
   
-  ForwardStream=&Serial;
   DeviceInformation[0].N2kSource=0;
   DeviceReady=false;
   AddressClaimStarted=0;
