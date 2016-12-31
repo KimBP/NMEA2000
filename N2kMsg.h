@@ -26,6 +26,9 @@ Definition for NMEA2000 message class used in my NMEA2000 libraries.
 
 #ifndef _tN2kMsg_H_
 #define _tN2kMsg_H_
+
+
+#include <Serial.h>
 #include <Arduino.h>
 
 const double   N2kDoubleNA=-1e9;
@@ -124,10 +127,10 @@ public:
 
   bool Set2ByteUInt(uint16_t v, int &Index);
 
-  void Print(Stream *port, bool NoData=false) const;
+  void Print(Serial *port, bool NoData=false) const;
   void SendInActisenseFormat(Stream *port) const;
 };
 
-void PrintBuf(Stream *port, unsigned char len, const unsigned char *pData, bool AddLF=false);
+void PrintBuf(Serial *port, unsigned char len, const unsigned char *pData, bool AddLF=false);
 
 #endif

@@ -551,19 +551,19 @@ void SetBufStr(const char *str, int len, int &index, unsigned char *buf) {
 }
 
 //*****************************************************************************
-void PrintBuf(Stream *port, unsigned char len, const unsigned char *pData, bool AddLF) {
+void PrintBuf(Serial *port, unsigned char len, const unsigned char *pData, bool AddLF) {
     if (port==0) return;
 
     for(int i = 0; i<len; i++) {
       if (i>0) { port->print(","); };
-      port->print(pData[i],HEX);
+      port->print(pData[i],Serial::HEX);
     }
     
     if (AddLF) port->println("");
 }
 
 //*****************************************************************************
-void tN2kMsg::Print(Stream *port, bool NoData) const {
+void tN2kMsg::Print(Serial *port, bool NoData) const {
   if (port==0 || !IsValid()) return;
   port->print(F("Pri:")); port->print(Priority);
   port->print(F(" PGN:")); port->print(PGN);
