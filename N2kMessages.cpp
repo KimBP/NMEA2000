@@ -411,11 +411,11 @@ bool ParseN2kPGN127513(const tN2kMsg &N2kMsg, unsigned char &BatInstance, tN2kBa
 
 //*****************************************************************************
 // Boat speed
-void SetN2kPGN128259(tN2kMsg &N2kMsg, unsigned char SID, double WaterRefereced, double GroundReferenced, tN2kSpeedWaterReferenceType SWRT) {
+void SetN2kPGN128259(tN2kMsg &N2kMsg, unsigned char SID, double WaterReferenced, double GroundReferenced, tN2kSpeedWaterReferenceType SWRT) {
     N2kMsg.SetPGN(128259L);
     N2kMsg.Priority=6;
     N2kMsg.AddByte(SID);
-    N2kMsg.Add2ByteUDouble(WaterRefereced,0.01);
+    N2kMsg.Add2ByteUDouble(WaterReferenced,0.01);
     N2kMsg.Add2ByteUDouble(GroundReferenced,0.01);
     N2kMsg.AddByte(SWRT);
     N2kMsg.AddByte(0xff); // Reserved
