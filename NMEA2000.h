@@ -210,10 +210,11 @@ protected:
     };
     
 protected:
-    // Buffer for received messages.
+    // Buffer for received N2k messages not yet fully assembled
     tN2kCANMsg *N2kCANMsgBuf;
     unsigned char MaxN2kCANMsgs;
 
+    // Buffer for outgoing CAN frames - bypass by setting MaxCANSendFrames to 0.
     tCANSendFrame *CANSendFrameBuf;
     uint8_t MaxCANSendFrames;
     uint8_t CANSendFrameBufferWrite;
