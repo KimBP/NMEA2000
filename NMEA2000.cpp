@@ -417,7 +417,13 @@ bool tNMEA2000::SendMsg(const tN2kMsg &N2kMsg, int DeviceIndex) {
 //      ForwardStream->print("Can ID:"); ForwardStream->println(canId);
       if (!Open()) return false;  // Can not do much
 
-      if ( (AddressClaimStarted!=0) && (AddressClaimStarted+N2kAddressClaimTimeout>millis()) ) return false; // Do not send during address claiming
+      if (AddressClaimStarted!=0) {
+    	  if  ( (AddressClaimStarted+N2kAddressClaimTimeout) > millis() ) {
+    		  return false; // Do not send during address claiming
+    	  } else {
+    		  AddressClaimStarted = 0; // Address Claim timed out
+    	  }
+      }
 
       if (N2kMsg.DataLen<=8) { // We can send single frame
 //          PrintBuf(ForwardStream,N2kMsg.DataLen, N2kMsg.Data,true);
