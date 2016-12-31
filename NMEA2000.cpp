@@ -284,10 +284,12 @@ bool tNMEA2000::Open() {
       for (int i=0; i<MaxN2kCANMsgs; i++) N2kCANMsgBuf[i].FreeMessage();
     }
     
-    if ( CANSendFrameBuf==0 ) {
-      CANSendFrameBuf = new tCANSendFrame[MaxCANSendFrames];
-      CANSendFrameBufferWrite=0;
-      CANSendFrameBufferRead=0;
+    if (0 != MaxCANSendFrames) {
+		if ( CANSendFrameBuf==0 ) {
+		  CANSendFrameBuf = new tCANSendFrame[MaxCANSendFrames];
+		  CANSendFrameBufferWrite=0;
+		  CANSendFrameBufferRead=0;
+		}
     }
   
     DeviceReady=CANOpen();

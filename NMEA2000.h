@@ -269,6 +269,9 @@ public:
     // critical, use buffer size, which is large enough (default 40 frames). 
     // So e.g. Product information takes totally 134 bytes. This needs 20 frames. If you also send GNSS 47 bytes=7 frames.
     // If you want to be sure that both will be sent on any situation, you need at least 27 frame buffer size.
+    //
+    // By setting the frame size to 0 the internal frame buf is bypassed. Either the CAN driver or the realization (inherited) class
+    // must implement something similar.
     void SetN2kCANSendFrameBufSize(const unsigned char _MaxCANSendFrames) { if (CANSendFrameBuf==0) { MaxCANSendFrames=_MaxCANSendFrames; }; }
     
     // Define your product information. Defaults will be set on initialization.
