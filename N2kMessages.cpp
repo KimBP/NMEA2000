@@ -593,6 +593,8 @@ bool ParseN2kPGN129029(const tN2kMsg &N2kMsg, unsigned char &SID, uint16_t &Days
 
 //*****************************************************************************
 // AIS position report (class A 129038)
+// Latitude and Longitude in degrees (1e7)
+// COG and Heading in radians (1e4)
 void SetN2kPGN129038(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID,
                         double Latitude, double Longitude, bool Accuracy, bool RAIM, uint8_t Seconds,
                         double COG, double SOG, double Heading, double ROT, tN2kAISNavStatus NavStatus)
