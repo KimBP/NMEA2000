@@ -53,6 +53,7 @@ inline double CoulombToAh(double v) { return v/3600; }
 inline double hToSeconds(double v) { return v*3600; }
 inline double SecondsToh(double v) { return v/3600; }
 inline double msToKnots(double v) { return v*3600/1852.0; }
+inline double minutesToDeg(double v) { return v/60; }
 
 enum tN2kHeadingReference {
                             N2khr_true=0,
