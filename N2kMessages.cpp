@@ -793,9 +793,9 @@ bool AppendN2kPGN129285(tN2kMsg &N2kMsg, uint16_t ID, char* Name, double Latitud
 //*****************************************************************************
 // AIS static data A
 void SetN2kPGN129794(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID,
-                        uint32_t IMOnumber, char *Callsign, char *Name, uint8_t VesselType, double Length,
+                        uint32_t IMOnumber, const char *Callsign, const char *Name, uint8_t VesselType, double Length,
                         double Beam, double PosRefStbd, double PosRefBow, uint16_t ETAdate, double ETAtime,
-                        double Draught, char *Destination, tN2kAISVersion AISversion, tN2kGNSStype GNSStype,
+                        double Draught, const char *Destination, tN2kAISVersion AISversion, tN2kGNSStype GNSStype,
                         tN2kAISDTE DTE, tN2kAISTranceiverInfo AISinfo)
 {
     N2kMsg.SetPGN(129794L);
