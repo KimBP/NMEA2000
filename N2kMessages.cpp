@@ -851,7 +851,7 @@ bool ParseN2kPGN129794(const tN2kMsg &N2kMsg, uint8_t &MessageID, tN2kAISRepeat 
 
 //*****************************************************************************
 // AIS static data class B part A
-void SetN2kPGN129809(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, char *Name)
+void SetN2kPGN129809(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, const char *Name)
 {
     N2kMsg.SetPGN(129809L);
     N2kMsg.Priority=6;
@@ -877,7 +877,7 @@ bool ParseN2kPGN129809(const tN2kMsg &N2kMsg, uint8_t &MessageID, tN2kAISRepeat 
 //*****************************************************************************
 // AIS static data class B part B
 void SetN2kPGN129810(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID,
-                      uint8_t VesselType, char *Vendor, char *Callsign, double Length, double Beam,
+                      uint8_t VesselType, const char *Vendor, const char *Callsign, double Length, double Beam,
                       double PosRefStbd, double PosRefBow, uint32_t MothershipID)
 {
     N2kMsg.SetPGN(129810L);

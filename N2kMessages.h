@@ -928,9 +928,9 @@ inline bool ParseN2kAISClassAStatic(const tN2kMsg &N2kMsg, uint8_t &MessageID, t
 //  - Name                  Vessel name
 // Output:
 //  - N2kMsg                NMEA2000 message ready to be send.
-void SetN2kPGN129809(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, char *Name);
+void SetN2kPGN129809(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, const char *Name);
 
-inline void SetN2kAISClassBStaticPartA(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, char *Name) {
+inline void SetN2kAISClassBStaticPartA(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID, const char *Name) {
   SetN2kPGN129809(N2kMsg, MessageID, Repeat, UserID, Name);
 }
 
@@ -950,11 +950,11 @@ inline bool ParseN2kAISClassBStaticPartA(const tN2kMsg &N2kMsg, uint8_t &Message
 // Output:
 //  - N2kMsg                NMEA2000 message ready to be send.
 void SetN2kPGN129810(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID,
-                      uint8_t VesselType, char *Vendor, char *Callsign, double Length, double Beam,
+                      uint8_t VesselType, const char *Vendor, const char *Callsign, double Length, double Beam,
                       double PosRefStbd, double PosRefBow, uint32_t MothershipID);
 
 inline void SetN2kAISClassBStaticPartB(tN2kMsg &N2kMsg, uint8_t MessageID, tN2kAISRepeat Repeat, uint32_t UserID,
-                      uint8_t VesselType, char *Vendor, char *Callsign, double Length, double Beam,
+                      uint8_t VesselType, const char *Vendor, const char *Callsign, double Length, double Beam,
                       double PosRefStbd, double PosRefBow, uint32_t MothershipID) {
   SetN2kPGN129810(N2kMsg, MessageID, Repeat, UserID, VesselType, Vendor, Callsign, Length, Beam,
                   PosRefStbd, PosRefBow, MothershipID);
