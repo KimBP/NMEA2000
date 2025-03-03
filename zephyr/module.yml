@@ -1,0 +1,4 @@
+name: NMEA2000
+build:
+  cmake-ext: True
+  kconfig: Kconfig
